@@ -13,6 +13,16 @@
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>https://creepers.sbs/discord</loc>
+  <lastmod>2024-12-20T20:25:24+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://creepers.sbs/status</loc>
+  <lastmod>2024-12-20T20:25:24+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
   <loc>https://creepers.sbs/donate/</loc>
   <lastmod>2024-12-20T20:25:24+00:00</lastmod>
   <priority>0.80</priority>
