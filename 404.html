@@ -6,35 +6,361 @@
     <meta name="description" content="Page not found - creepers.sbs">
     <meta name="robots" content="noindex">
     <title>404 - Page Not Found | creepers.sbs</title>
-    <link rel="stylesheet" href="/style.css">
+    
+    <!-- Tailwind CSS & Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" href="/assets/img/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --creepers-header-bg: #09090b;
+            --creepers-header-text: #ffffff;
+            --creepers-header-border: #1a1a1a;
+            --creepers-header-dropdown-bg: #09090b;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: #09090b;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, #000 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, #000 40%, transparent 100%);
+            z-index: -1;
+        }
+
+        /* Wordsearch Styling */
+        .ws-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 4px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .ws-letter {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            color: rgba(255, 255, 255, 0.3);
+            text-transform: uppercase;
+            font-size: clamp(12px, 3vw, 18px);
+            font-weight: 300;
+            transition: all 0.5s ease;
+        }
+
+        .ws-letter.selected {
+            background-color: #025d32;
+            border-color: #025d32;
+            color: #ffffff;
+            font-weight: 700;
+            box-shadow: 0 0 15px rgba(2, 93, 50, 0.5);
+            transform: scale(1.05);
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body>
-    <!-- Loading Animation -->
-    <div class="loader-wrapper">
-        <div class="loader"></div>
-    </div>
+<body class="antialiased">
 
-    <div class="error-container">
-        <div class="error-content">
-            <img src="/assets/img/404.webp" alt="Confused Minecraft Steve" class="error-gif">
-            <h1>404</h1>
-            <h2>Oops! Page Not Found</h2>
-            <p>Looks like this page got blown up by a creeper!</p>
-            <div class="error-actions">
-                <a href="/" class="btn btn-primary">
-                    <i class="fas fa-home"></i>
-                    Go Home
-                </a>
-                <a href="https://docs.creepers.sbs" class="btn btn-secondary">
-                    <i class="fas fa-book"></i>
-                    Documentation
-                </a>
+    <!-- Background Grid -->
+    <div class="grid-bg"></div>
+
+    <!-- Global Network Header Root -->
+    <div id="header-root"></div>
+
+    <!-- Main Content -->
+    <main class="pt-9 relative z-10">
+        <div id="wrap" class="container mx-auto px-6 py-16 flex flex-col md:flex-row items-center justify-center gap-12 lg:gap-20 min-h-[calc(100vh-2.25rem)]">
+            
+            <!-- Wordsearch Grid -->
+            <div class="reveal flex-shrink-0 w-full max-w-md">
+                <div id="wordsearch" class="ws-grid mx-auto">
+                    <!-- Row 1 -->
+                    <div class="ws-letter">k</div>
+                    <div class="ws-letter">v</div>
+                    <div class="ws-letter">n</div>
+                    <div class="ws-letter">z</div>
+                    <div class="ws-letter">i</div>
+                    <div class="ws-letter">x</div>
+                    <div class="ws-letter">m</div>
+                    <div class="ws-letter">e</div>
+                    <!-- Row 2 -->
+                    <div class="ws-letter">t</div>
+                    <div class="ws-letter">a</div>
+                    <div class="ws-letter">x</div>
+                    <div class="ws-letter">l</div>
+                    <div class="ws-letter one">4</div>
+                    <div class="ws-letter two">0</div>
+                    <div class="ws-letter three">4</div>
+                    <div class="ws-letter">y</div>
+                    <!-- Row 3 -->
+                    <div class="ws-letter">y</div>
+                    <div class="ws-letter">w</div>
+                    <div class="ws-letter">v</div>
+                    <div class="ws-letter">b</div>
+                    <div class="ws-letter">o</div>
+                    <div class="ws-letter">q</div>
+                    <div class="ws-letter">d</div>
+                    <div class="ws-letter">y</div>
+                    <!-- Row 4 -->
+                    <div class="ws-letter">p</div>
+                    <div class="ws-letter">a</div>
+                    <div class="ws-letter four">p</div>
+                    <div class="ws-letter five">a</div>
+                    <div class="ws-letter six">g</div>
+                    <div class="ws-letter seven">e</div>
+                    <div class="ws-letter">v</div>
+                    <div class="ws-letter">j</div>
+                    <!-- Row 5 -->
+                    <div class="ws-letter">a</div>
+                    <div class="ws-letter eight">n</div>
+                    <div class="ws-letter nine">o</div>
+                    <div class="ws-letter ten">t</div>
+                    <div class="ws-letter">s</div>
+                    <div class="ws-letter">c</div>
+                    <div class="ws-letter">e</div>
+                    <div class="ws-letter">w</div>
+                    <!-- Row 6 -->
+                    <div class="ws-letter">v</div>
+                    <div class="ws-letter">x</div>
+                    <div class="ws-letter">e</div>
+                    <div class="ws-letter">p</div>
+                    <div class="ws-letter">c</div>
+                    <div class="ws-letter">f</div>
+                    <div class="ws-letter">h</div>
+                    <div class="ws-letter">q</div>
+                    <!-- Row 7 -->
+                    <div class="ws-letter">e</div>
+                    <div class="ws-letter eleven">f</div>
+                    <div class="ws-letter twelve">o</div>
+                    <div class="ws-letter thirteen">u</div>
+                    <div class="ws-letter fourteen">n</div>
+                    <div class="ws-letter fifteen">d</div>
+                    <div class="ws-letter">s</div>
+                    <div class="ws-letter">w</div>
+                    <!-- Row 8 -->
+                    <div class="ws-letter">q</div>
+                    <div class="ws-letter">v</div>
+                    <div class="ws-letter">o</div>
+                    <div class="ws-letter">s</div>
+                    <div class="ws-letter">m</div>
+                    <div class="ws-letter">v</div>
+                    <div class="ws-letter">f</div>
+                    <div class="ws-letter">u</div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <script src="/script.js"></script>
+            <!-- Main Content -->
+            <div id="main-content" class="reveal max-w-md text-center md:text-left" style="transition-delay: 0.2s">
+                <h1 class="text-3xl md:text-4xl font-bold mb-6 text-white leading-tight">
+                    We couldn't find what you were looking for.
+                </h1>
+                
+                <p class="text-zinc-400 mb-4 leading-relaxed">
+                    Unfortunately the page you were looking for could not be found. It may be temporarily unavailable, moved, or no longer exist.
+                </p>
+                
+                <p class="text-zinc-400 mb-8 leading-relaxed">
+                    Check the URL you entered for any mistakes and try again. Alternatively, take a look around the rest of our site.
+                </p>
+
+                <!-- Action Buttons -->
+                <div id="navigation" class="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <a href="/" class="px-6 py-3 bg-[#025d32] hover:bg-[#024024] text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 inline-flex items-center gap-2 text-sm uppercase tracking-wider">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                    <a href="https://docs.creepers.sbs" class="px-6 py-3 border border-zinc-700 hover:border-[#025d32] text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 inline-flex items-center gap-2 text-sm uppercase tracking-wider">
+                        <i class="fas fa-book"></i> Documentation
+                    </a>
+                    <a href="https://status.creepers.sbs" class="px-6 py-3 border border-zinc-700 hover:border-[#025d32] text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 inline-flex items-center gap-2 text-sm uppercase tracking-wider">
+                        <i class="fas fa-signal"></i> Status
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // --- GLOBAL HEADER LOGIC ---
+        const NETWORK_DATA = {
+            "CREATIVITATIS": [
+                { name: "Creativitatis", url: "https://creativitatis.dev", description: "Soon™" },
+                { name: "Creativitatis Blog", url: "https://creativitatis.blog", description: "The blog - Soon™" },
+            ],
+            "CREEPERHUB ECOSYSTEM": [
+                { name: "CreeperHUB", url: "https://creeperhub.net", description: "Ex-main hub, soon v3.0" },
+                { name: "CreeperHUB.com", url: "https://about.creeperhub.com", description: "CreeperHUB hosted side projects" },
+            ],
+            "UTILITIES & APPS": [
+                { name: "creepers.sbs", url: "#", description: "Free subdomain service", status: "current" },
+                { name: "Shrinkify", url: "https://shrinkify.club", description: "URL shortener" },
+                { name: "askfor.pics", url: "https://askfor.pics", description: "Link-In-Bio" },
+            ],
+            "OTAKUFORGE":  [
+                { name: "Otakuforge", url: "https://otakuforge.org", description: "Upcoming social network" },
+                { name: "MyOtaku", url: "https://otaku.my", description: "Otakuforge's Identity" },
+                { name: "otaku.tube", url: "https://otaku.tube", description: "Otakuforge's Peertube instance" },
+            ],
+            "THE CREATOR": [
+                { name: "Giocoliere", url: "https://giocoliere.dev", description: "Personal Wesbsite v0.7 :P" },
+                { name: "gioco.help", url: "https://gioco.help", description: "Support portal + archives" },
+            ],
+            "SHORT URL": [
+                { name: "tinyy.dev", url: "https://tinyy.dev", description: "Short links for projects + articles" },
+                { name: "MClink", url: "https://mc-l.ink", description: "Short URL for Minecraft related content"   },
+            ],
+            "CREEPERCRAFT": [
+                { name: "Creepercraft", url: "https://creepercraft.net", description: "Minecraft server coming soon" },
+            ],
+            "CREEPERLAB": [
+                { name: "CreeperLAB", url: "https://creeperlab.org", description: "Sources for Minecraft Devs" },
+            ],
+        };
+
+        function initHeader(currentSiteId) {
+            const root = document.getElementById('header-root');
+            root.innerHTML = `
+                <div class="fixed top-0 left-0 right-0 z-[9999] flex items-center px-4 sm:px-6 h-9 justify-between transition-all duration-200" 
+                     style="background-color: var(--creepers-header-bg); color: var(--creepers-header-text); border-bottom: 1px solid var(--creepers-header-border);">
+                    <a href="https://creativitatis.dev" class="text-xs font-bold tracking-widest uppercase hover:opacity-60 transition-opacity flex items-center gap-2">
+                        <span class="w-2 h-2 bg-[#025d32] rounded-full animate-pulse"></span>
+                        CREATIVITATIS
+                    </a>
+                    <div class="relative h-full flex items-center" id="network-dropdown-wrapper">
+                        <button id="dropdown-btn" class="flex items-center gap-1.5 text-xs uppercase tracking-wider hover:opacity-60 transition-opacity py-2 px-2 -mr-2">
+                            Network 
+                            <svg id="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div id="dropdown-menu" class="hidden absolute top-9 right-0 w-[calc(100vw-2rem)] sm:w-[600px] max-w-[600px] border border-zinc-800 p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 shadow-2xl transition-all duration-200 origin-top-right rounded-bl-xl rounded-br-xl max-h-[80vh] overflow-y-auto" style="background-color: var(--creepers-header-dropdown-bg);">
+                            ${Object.entries(NETWORK_DATA).map(([category, sites]) => `
+                                <div>
+                                    <h3 class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-4 border-b border-zinc-800 pb-2">${category}</h3>
+                                    <ul class="space-y-3">
+                                        ${sites.map(site => {
+                                            const isCurrent = currentSiteId === site.name || site.status === 'current';
+                                            return `
+                                                <li>
+                                                    <a href="${isCurrent ? '#' : site.url}" class="block group ${isCurrent ? 'cursor-default' : 'hover:bg-zinc-800/50 p-2 -m-2 rounded-md'}">
+                                                        <span class="flex items-center gap-2 text-sm font-medium ${isCurrent ? 'text-[#025d32]' : 'text-zinc-200 group-hover:text-[#025d32]'}">
+                                                            ${site.name}
+                                                            ${isCurrent ? '<span class="text-[9px] bg-[#025d32]/10 text-[#025d32] px-1.5 py-0.5 rounded border border-[#025d32]/30">CURRENT</span>' : ''}
+                                                        </span>
+                                                        ${site.description ? `<p class="text-[11px] text-zinc-500 mt-1">${site.description}</p>` : ''}
+                                                    </a>
+                                                </li>
+                                            `;
+                                        }).join('')}
+                                    </ul>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const wrapper = document.getElementById('network-dropdown-wrapper');
+            const menu = document.getElementById('dropdown-menu');
+            const arrow = document.getElementById('dropdown-arrow');
+            const btn = document.getElementById('dropdown-btn');
+
+            wrapper.addEventListener('mouseenter', () => {
+                if (window.innerWidth >= 640) {
+                    menu.classList.remove('hidden');
+                    arrow.style.transform = 'rotate(180deg)';
+                }
+            });
+            wrapper.addEventListener('mouseleave', () => {
+                if (window.innerWidth >= 640) {
+                    menu.classList.add('hidden');
+                    arrow.style.transform = 'rotate(0deg)';
+                }
+            });
+
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (window.innerWidth < 640) { 
+                    menu.classList.toggle('hidden');
+                    arrow.style.transform = menu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                }
+            });
+
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth < 640 && !wrapper.contains(e.target)) {
+                    menu.classList.add('hidden');
+                    arrow.style.transform = 'rotate(0deg)';
+                }
+            });
+        }
+
+        initHeader('creepers.sbs');
+
+        // --- SCROLL REVEAL ANIMATION ---
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        reveals.forEach(reveal => observer.observe(reveal));
+
+        // --- WORDSEARCH ANIMATION LOGIC ---
+        const sequence = [
+            'one', 'two', 'three', 
+            'four', 'five', 'six', 'seven', 
+            'eight', 'nine', 'ten', 
+            'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen'
+        ];
+
+        function runAnimation() {
+            // Reset all
+            document.querySelectorAll('.ws-letter.selected').forEach(el => el.classList.remove('selected'));
+
+            let delay = 500;
+            
+            sequence.forEach((cls, index) => {
+                setTimeout(() => {
+                    const el = document.querySelector('.' + cls);
+                    if (el) el.classList.add('selected');
+                }, delay + (index * 400));
+            });
+
+            // Restart loop after 6 seconds
+            setTimeout(runAnimation, 8000);
+        }
+
+        // Start the animation
+        setTimeout(runAnimation, 1500);
+    </script>
 </body>
 </html>

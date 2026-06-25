@@ -15,17 +15,21 @@
         }
     ],
     "shortcuts": [
-        {
-            "name": "Documentation",
-            "short_name": "Docs",
-            "description": "View creepers.sbs documentation",
-            "url": "/docs"
-        },
-        {
+            {
             "name": "Support Us",
             "short_name": "Donate",
             "description": "Support creepers.sbs development",
-            "url": "/donate"
+            "url": "/donate"},
+            {
+            "name": "Discord",
+            "short_name": "Discord",
+            "description": "Join CreeperHUB Discord",
+            "url": "/discord"},
+            {
+            "name": "Link-In-Bio",
+            "short_name": "LIB",
+            "description": "Use our Link-In-Bio service",
+            "url": "/askfor.pics"
         }
     ],
     "lang": "en-US",

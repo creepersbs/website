@@ -1,134 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Primary Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get your free .creepers.sbs subdomain instantly. Perfect for developers, Minecraft servers, and personal projects.">
+    <meta name="description" content="Get your free subdomain instantly. Perfect for developers, Minecraft servers, and personal projects.">
     <meta name="keywords" content="free subdomain, minecraft server hosting, web hosting, developer tools, dns management">
     <meta name="author" content="CreeperHUB">
     <meta property="og:type" content="website">
     <meta property="og:title" content="creepers.sbs - Free Subdomains for Everyone">
-    <meta property="og:description" content="Get your free .creepers.sbs subdomain instantly. Perfect for developers, Minecraft servers, and personal projects.">
-    <meta property="og:image" content="https://creepers.sbs/assets/img/mini-banner.png">
+    <meta property="og:description" content="Get your free subdomain instantly. Perfect for developers, Minecraft servers, and personal projects.">
+    <meta property="og:image" content="/assets/img/mini-banner.png">
     <meta property="og:url" content="https://creepers.sbs">
     <meta property="og:site_name" content="creepers.sbs">
 
-    <!--Site verifications-->
+    <!-- Site verifications -->
     <meta name="wot-verification" content="6f3bf0c52e4b0190371a"/>
 
     <!-- Twitter -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="@GiocoliereDev">
-<meta name="twitter:creator" content="@GiocoliereDev">
-<meta name="twitter:title" content="creepers.sbs - Free Subdomains for Everyone">
-<meta name="twitter:description" content="Get your free .creepers.sbs subdomain instantly. Perfect for developers, Minecraft servers, and personal projects.">
-<meta name="twitter:image:alt" content="https://creepers.sbs/assets/img/mini-banner.png" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@GiocoliereDev">
+    <meta name="twitter:creator" content="@GiocoliereDev">
+    <meta name="twitter:title" content="creepers.sbs - Free Subdomains for Everyone">
+    <meta name="twitter:description" content="Get your free subdomain instantly. Perfect for developers, Minecraft servers, and personal projects.">
+    <meta name="twitter:image:alt" content="/assets/img/mini-banner.png" />
 
-<!-- Discord Embed -->
-<meta name="theme-color" content="#025d32">
-<meta property="discord:invite" content="Ttyg95fszY">
+    <!-- Discord Embed -->
+    <meta name="theme-color" content="#025d32">
+    <meta property="discord:invite" content="Ttyg95fszY">
 
-<!-- Canonical URL -->
-<link rel="canonical" href="https://creepers.sbs">
-
-<!-- Language -->
-<meta property="og:locale" content="en_US">
-
-<!-- Cache Control -->
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://creepers.sbs">
+    <meta property="og:locale" content="en_US">
 
     <title>creepers.sbs - Free Subdomains for Everyone</title>
-    <link rel="stylesheet" href="/style.css">
+    
+    <!-- Tailwind CSS & Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" href="/assets/img/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Network Header adapted for this dark theme */
+            --creepers-header-bg: #09090b;
+            --creepers-header-text: #ffffff;
+            --creepers-header-border: #1a1a1a;
+            --creepers-header-dropdown-bg: #09090b;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: #09090b;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+            z-index: -1;
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loader */
+        .loader-wrapper {
+            position: fixed;
+            inset: 0;
+            background: #09090b;
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .loader-wrapper.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #1a1a1a;
+            border-top-color: #025d32;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #025d32; }
+    </style>
 </head>
-<body>
-    <!-- Loading Animation -->
+<body class="antialiased">
+
+    <!-- Loader -->
     <div class="loader-wrapper">
         <div class="loader"></div>
     </div>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <img src="/assets/img/image.png" alt="creepers.sbs logo">
-                    <span>creepers.sbs</span>
-                </div>
-                <button class="mobile-menu-btn">
+    <!-- Background Grid -->
+    <div class="grid-bg"></div>
+
+    <!-- Global Network Header Root -->
+    <div id="header-root"></div>
+
+    <!-- Main Content -->
+    <main class="pt-9 relative z-10">
+        
+        <!-- Site Header -->
+        <header class="sticky top-9 z-50 backdrop-blur-md bg-zinc-950/80 border-b border-zinc-800">
+            <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+                <a href="/" class="flex items-center gap-3">
+                    <img src="/assets/img/image.png" alt="creepers.sbs logo" class="w-8 h-8 rounded-lg">
+                    <span class="font-bold text-lg tracking-tight">creepers.sbs</span>
+                </a>
+                
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-zinc-400">
+                    <a href="#features" class="hover:text-white transition-colors">Features</a>
+                    <a href="/askfor.pics" class="hover:text-white transition-colors">Link-In-Bio</a>
+                    <a href="/donate" class="hover:text-white transition-colors">Donate</a>
+                    <a href="https://status.creepers.sbs" class="hover:text-white transition-colors">Status</a>
+                    <a href="https://docs.creepers.sbs" class="hover:text-white transition-colors">Documentation</a>
+                    <a href="https://github.com/creepersbs" class="hover:text-white transition-colors flex items-center gap-1">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://www.producthunt.com/posts/creepers-sbs" class="hover:text-white transition-colors flex items-center gap-1">
+                        <i class="fab fa-product-hunt"></i> Producthunt
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-2xl text-zinc-400 hover:text-white">
                     <i class="fas fa-bars"></i>
                 </button>
-                <div class="nav-links">
-                    <a href="/status">Status</a>
-                    <a href="#features">Features</a>
-                    <a href="/donate">Donate</a>
-                    <a href="https://docs.creepers.sbs">Documentation</a>
-                    <a href="https://github.com/creepersbs">GitHub</a>
-                    <a href="https://www.producthunt.com/posts/creepers-sbs">Producthunt</a>
-                </div>
-            </nav>
-
-            <div class="hero">
-                <h1>Free Subdomains for Everyone</h1>
-                <p>Get your free .creepers.sbs subdomain instantly. Perfect for developers,
-                   Minecraft servers, and personal projects.</p>
-                <a href="https://github.com/creepersbs/register" class="btn btn-primary">Claim Your Subdomain</a>
             </div>
-        </div>
-    </header>
 
-    <!-- Features -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2>Why Choose creepers.sbs?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-rocket"></i>
-                    <h3>Instant Setup</h3>
-                    <p>Get your subdomain up and running in minutes after the approval with our simple setup process on github.</p>
+            <!-- Mobile Nav -->
+            <div id="mobile-menu" class="hidden lg:hidden border-t border-zinc-800 px-6 py-4 flex-col gap-4 bg-zinc-950">
+                <a href="#features" class="block py-2 text-zinc-400 hover:text-white">Features</a>
+                <a href="/askfor.pics/" class="block py-2 text-zinc-400 hover:text-white">Link-In-Bio</a>
+                <a href="/donate" class="block py-2 text-zinc-400 hover:text-white">Donate</a>
+                <a href="https://status.creepers.sbs" class="block py-2 text-zinc-400 hover:text-white">Status</a>
+                <a href="https://docs.creepers.sbs" class="block py-2 text-zinc-400 hover:text-white">Documentation</a>
+                <a href="https://github.com/creepersbs" class="block py-2 text-zinc-400 hover:text-white">GitHub</a>
+                <a href="https://www.producthunt.com/posts/creepers-sbs" class="block py-2 text-zinc-400 hover:text-white">Producthunt</a>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 pt-24 pb-20 text-center">
+            <div class="reveal max-w-3xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 border border-[#025d32] bg-[#025d32]/10 rounded-full">
+                    <span class="w-2 h-2 bg-[#025d32] rounded-full animate-pulse"></span>
+                    <span class="text-xs font-medium tracking-widest uppercase text-[#025d32]">100% Free Forever</span>
                 </div>
-                <div class="feature-card">
-                    <i class="fas fa-server"></i>
-                    <h3>Perfect for Hosting</h3>
-                    <p>Ideal for web apps, APIs, Minecraft servers, and personal projects.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-gamepad"></i>
-                    <h3>Gaming Community</h3>
-                    <p>Build our community of developers and Minecraft enthusiasts.</p>
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tighter mb-6">
+                    Free Subdomains <br class="hidden sm:block">for <span class="text-[#025d32]">Everyone</span>
+                </h1>
+                <p class="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto">
+                    Get your free subdomain instantly. Perfect for developers, Minecraft servers, and personal projects.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://github.com/creepersbs/register" class="px-8 py-4 bg-[#025d32] hover:bg-[#024024] text-white font-bold uppercase tracking-wider rounded-lg transition-all duration-300 hover:scale-105 inline-flex items-center justify-center gap-2">
+                        <i class="fas fa-rocket"></i> Claim Your Subdomain
+                    </a>
+                    <a href="https://docs.creepers.sbs" class="px-8 py-4 border border-zinc-700 hover:border-[#025d32] text-white font-bold uppercase tracking-wider rounded-lg transition-all duration-300 hover:scale-105 inline-flex items-center justify-center gap-2">
+                        <i class="fas fa-book"></i> Read the Docs
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Benefits -->
-    <section class="benefits">
-        <div class="container">
-            <h2>What You Get</h2>
-            <div class="benefits-list">
-                <div class="benefit-item">✓ Free subdomain on creepers.sbs</div>
-                <div class="benefit-item">✓ Custom DNS record management</div>
-                <div class="benefit-item">✓ Unlimited bandwidth</div>
-                <div class="benefit-item">✓ 24/7 uptime monitoring</div>
-                <div class="benefit-item">✓ Community support</div>
+        <!-- Domains Section -->
+        <section id="domains" class="container mx-auto px-6 py-24">
+            <div class="reveal text-center mb-16">
+                <h2 class="text-3xl sm:text-5xl font-black tracking-tighter mb-4">Available Domains</h2>
+                <p class="text-zinc-400 max-w-xl mx-auto">Choose from our growing list of extensions.</p>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="logo">
-                <img src="/assets/img/image.png" alt="creepers.sbs logo" href="/">
-                <span>creepers.sbs</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Active Domains -->
+                <div class="reveal group p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl flex items-center justify-between hover:border-[#025d32] transition-all duration-300">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/30 rounded-lg text-[#025d32]">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <span class="text-lg font-bold font-mono">creepers.sbs</span>
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-[#025d32] bg-[#025d32]/10 px-2 py-1 rounded border border-[#025d32]/30">Active</span>
+                </div>
+
+                <div class="reveal group p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl flex items-center justify-between hover:border-[#025d32] transition-all duration-300" style="transition-delay: 0.05s">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/30 rounded-lg text-[#025d32]">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <span class="text-lg font-bold font-mono">creepers.cloud</span>
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-[#025d32] bg-[#025d32]/10 px-2 py-1 rounded border border-[#025d32]/30">Active</span>
+                </div>
+
+                <div class="reveal group p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl flex items-center justify-between hover:border-[#025d32] transition-all duration-300" style="transition-delay: 0.1s">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/30 rounded-lg text-[#025d32]">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <span class="text-lg font-bold font-mono">creepers.pro</span>
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-[#025d32] bg-[#025d32]/10 px-2 py-1 rounded border border-[#025d32]/30">Active</span>
+                </div>
+
+                <div class="reveal group p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl flex items-center justify-between hover:border-[#025d32] transition-all duration-300" style="transition-delay: 0.15s">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/30 rounded-lg text-[#025d32]">
+                            <i class="fas fa-laugh-squint"></i>
+                        </div>
+                        <span class="text-lg font-bold font-mono">creepers.lol</span>
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-[#025d32] bg-[#025d32]/10 px-2 py-1 rounded border border-[#025d32]/30">Active</span>
+                </div>
+
+                <div class="reveal group p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl flex items-center justify-between hover:border-[#025d32] transition-all duration-300" style="transition-delay: 0.2s">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/30 rounded-lg text-[#025d32]">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div>
+                            <span class="text-lg font-bold font-mono block">a-dev.sbs</span>
+                            <span class="text-[10px] text-zinc-500 italic">Not listed in TOS</span>
+                        </div>
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-[#025d32] bg-[#025d32]/10 px-2 py-1 rounded border border-[#025d32]/30">Active</span>
+                </div>
+
+                <!-- WIP Domains -->
+                <div class="reveal group p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl flex items-center justify-between hover:border-zinc-600 transition-all duration-300" style="transition-delay: 0.25s">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 flex items-center justify-center bg-zinc-800/50 border border-zinc-700 rounded-lg text-zinc-500">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <span class="text-lg font-bold font-mono text-zinc-400">Bluesky Handle</span>
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded border border-yellow-500/30">W.I.P</span>
+                </div>
+
+                <div class="reveal group p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl flex items-center justify-between hover:border-zinc-600 transition-all duration-300" style="transition-delay: 0.3s">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 flex items-center justify-center bg-zinc-800/50 border border-zinc-700 rounded-lg text-zinc-500">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div>
+                            <span class="text-lg font-bold font-mono text-zinc-400 block">askfor.pics</span>
+                            <span class="text-[10px] text-zinc-500 italic">Link-in-bio</span>
+                        </div>
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded border border-yellow-500/30">W.I.P</span>
+                </div>
             </div>
-            <p>© <script>document.write(new Date().getFullYear())</script> CreeperHUB. All rights reserved.</p>
-        </div>
-    </footer>
+        </section>
 
-    <script src="/script.js"></script>
+        <!-- Features Section -->
+        <section id="features" class="container mx-auto px-6 py-24 border-t border-zinc-900">
+            <div class="reveal text-center mb-16">
+                <h2 class="text-3xl sm:text-5xl font-black tracking-tighter mb-4">Platform Features</h2>
+                <p class="text-zinc-400 max-w-xl mx-auto">Everything you need to manage your domains, with more coming soon.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <!-- Feature 1 -->
+                <div class="reveal group p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-[#025d32] transition-all duration-300">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/20 rounded-xl text-xl text-[#025d32] group-hover:scale-110 transition-transform">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded border border-yellow-500/30">Soon</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Automatization</h3>
+                    <p class="text-sm text-zinc-400">Automated process using bots directly integrated into Github.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="reveal group p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-[#025d32] transition-all duration-300" style="transition-delay: 0.05s">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/20 rounded-xl text-xl text-[#025d32] group-hover:scale-110 transition-transform">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded border border-yellow-500/30">Soon</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">More Speed</h3>
+                    <p class="text-sm text-zinc-400">Optimized registration process and faster domain resolution speeds.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="reveal group p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-[#025d32] transition-all duration-300" style="transition-delay: 0.1s">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/20 rounded-xl text-xl text-[#025d32] group-hover:scale-110 transition-transform">
+                            <i class="fas fa-gauge-high"></i>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded border border-yellow-500/30">Soon</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Online Dashboard</h3>
+                    <p class="text-sm text-zinc-400">A web dashboard to easily register and manage all your subdomains.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="reveal group p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-[#025d32] transition-all duration-300" style="transition-delay: 0.15s">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/20 rounded-xl text-xl text-[#025d32] group-hover:scale-110 transition-transform">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded border border-yellow-500/30">Soon</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">SSL Encryption</h3>
+                    <p class="text-sm text-zinc-400">Expanded SSL encryption support for secure connections across all domains.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="reveal group p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-[#025d32] transition-all duration-300" style="transition-delay: 0.2s">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/20 rounded-xl text-xl text-[#025d32] group-hover:scale-110 transition-transform">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded border border-yellow-500/30">Soon</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Custom WhoIs</h3>
+                    <p class="text-sm text-zinc-400">Custom whois to see domain info + whois privacy protection.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="reveal group p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-[#025d32] transition-all duration-300" style="transition-delay: 0.25s">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/20 rounded-xl text-xl text-[#025d32] group-hover:scale-110 transition-transform">
+                            <i class="fas fa-list-ul"></i>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded border border-yellow-500/30">Soon</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Public Suffix List</h3>
+                    <p class="text-sm text-zinc-400">Integration into the Public Suffix List (PSL) for broader recognition.</p>
+                </div>
+
+                <!-- Feature 7 -->
+                <div class="reveal group p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-[#025d32] transition-all duration-300" style="transition-delay: 0.3s">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/20 rounded-xl text-xl text-[#025d32] group-hover:scale-110 transition-transform">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded border border-yellow-500/30">Soon</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">DS / DNSKEYS</h3>
+                    <p class="text-sm text-zinc-400">Support for DS and DNSKEYS for advanced DNS provider configurations.</p>
+                </div>
+
+                <!-- Feature 8 -->
+                <div class="reveal group p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-[#025d32] transition-all duration-300" style="transition-delay: 0.35s">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/20 rounded-xl text-xl text-[#025d32] group-hover:scale-110 transition-transform">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-yellow-500 bg-yellow-500/10 px-2 py-1 rounded border border-yellow-500/30">Soon</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Tutorials Area</h3>
+                    <p class="text-sm text-zinc-400">Dedicated tutorials on how to connect your domains to various services.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-zinc-800 mt-12">
+            <div class="container mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <img src="/assets/img/image.png" alt="creepers.sbs logo" class="w-8 h-8 rounded-lg">
+                    <span class="font-bold text-lg tracking-tight">creepers.sbs</span>
+                </div>
+                <p class="text-zinc-500 text-sm text-center md:text-right">&copy; <span id="current-year"></span> CreeperHUB. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Loader Fade Out
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loader-wrapper');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 500);
+        });
+
+        // Set current year dynamically
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+
+        // --- GLOBAL HEADER LOGIC ---
+        const NETWORK_DATA = {
+            "CREATIVITATIS": [
+                { name: "Creativitatis", url: "https://creativitatis.dev", description: "Soon™" },
+                { name: "Creativitatis Blog", url: "https://creativitatis.blog", description: "The blog - Soon™" },
+            ],
+            "CREEPERHUB ECOSYSTEM": [
+                { name: "CreeperHUB", url: "https://creeperhub.net", description: "Ex-main hub, soon v3.0" },
+                { name: "CreeperHUB.com", url: "https://about.creeperhub.com", description: "CreeperHUB hosted side projects" },
+            ],
+            "UTILITIES & APPS": [
+                { name: "creepers.sbs", url: "#", description: "Free subdomain service", status: "current" },
+                { name: "Shrinkify", url: "https://shrinkify.club", description: "URL shortener" },
+                { name: "askfor.pics", url: "https://askfor.pics", description: "Link-In-Bio" },
+            ],
+            "OTAKUFORGE":  [
+                { name: "Otakuforge", url: "https://otakuforge.org", description: "Upcoming social network" },
+                { name: "MyOtaku", url: "https://otaku.my", description: "Otakuforge's Identity" },
+                { name: "otaku.tube", url: "https://otaku.tube", description: "Otakuforge's Peertube instance" },
+            ],
+            "THE CREATOR": [
+                { name: "Giocoliere", url: "https://giocoliere.dev", description: "Personal Wesbsite v0.7 :P" },
+                { name: "gioco.help", url: "https://gioco.help", description: "Support portal + archives" },
+            ],
+            "SHORT URL": [
+                { name: "tinyy.dev", url: "https://tinyy.dev", description: "Short links for projects + articles" },
+                { name: "MClink", url: "https://mc-l.ink", description: "Short URL for Minecraft related content"   },
+            ],
+            "CREEPERCRAFT": [
+                { name: "Creepercraft", url: "https://creepercraft.net", description: "Minecraft server coming soon" },
+            ],
+            "CREEPERLAB": [
+                { name: "CreeperLAB", url: "https://creeperlab.org", description: "Sources for Minecraft Devs" },
+            ],
+        };
+
+
+        function initHeader(currentSiteId) {
+            const root = document.getElementById('header-root');
+            root.innerHTML = `
+                <div class="fixed top-0 left-0 right-0 z-[9999] flex items-center px-4 sm:px-6 h-9 justify-between transition-all duration-200" 
+                     style="background-color: var(--creepers-header-bg); color: var(--creepers-header-text); border-bottom: 1px solid var(--creepers-header-border);">
+                    <a href="https://creativitatis.dev" class="text-xs font-bold tracking-widest uppercase hover:opacity-60 transition-opacity flex items-center gap-2">
+                        <span class="w-2 h-2 bg-[#025d32] rounded-full animate-pulse"></span>
+                        CREATIVITATIS
+                    </a>
+                    <div class="relative h-full flex items-center" id="network-dropdown-wrapper">
+                        <button id="dropdown-btn" class="flex items-center gap-1.5 text-xs uppercase tracking-wider hover:opacity-60 transition-opacity py-2 px-2 -mr-2">
+                            Network 
+                            <svg id="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div id="dropdown-menu" class="hidden absolute top-9 right-0 w-[calc(100vw-2rem)] sm:w-[600px] max-w-[600px] border border-zinc-800 p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 shadow-2xl transition-all duration-200 origin-top-right rounded-bl-xl rounded-br-xl max-h-[80vh] overflow-y-auto" style="background-color: var(--creepers-header-dropdown-bg);">
+                            ${Object.entries(NETWORK_DATA).map(([category, sites]) => `
+                                <div>
+                                    <h3 class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-4 border-b border-zinc-800 pb-2">${category}</h3>
+                                    <ul class="space-y-3">
+                                        ${sites.map(site => {
+                                            const isCurrent = currentSiteId === site.name || site.status === 'current';
+                                            return `
+                                                <li>
+                                                    <a href="${isCurrent ? '#' : site.url}" class="block group ${isCurrent ? 'cursor-default' : 'hover:bg-zinc-800/50 p-2 -m-2 rounded-md'}">
+                                                        <span class="flex items-center gap-2 text-sm font-medium ${isCurrent ? 'text-[#025d32]' : 'text-zinc-200 group-hover:text-[#025d32]'}">
+                                                            ${site.name}
+                                                            ${isCurrent ? '<span class="text-[9px] bg-[#025d32]/10 text-[#025d32] px-1.5 py-0.5 rounded border border-[#025d32]/30">CURRENT</span>' : ''}
+                                                        </span>
+                                                        ${site.description ? `<p class="text-[11px] text-zinc-500 mt-1">${site.description}</p>` : ''}
+                                                    </a>
+                                                </li>
+                                            `;
+                                        }).join('')}
+                                    </ul>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const wrapper = document.getElementById('network-dropdown-wrapper');
+            const menu = document.getElementById('dropdown-menu');
+            const arrow = document.getElementById('dropdown-arrow');
+            const btn = document.getElementById('dropdown-btn');
+
+            wrapper.addEventListener('mouseenter', () => {
+                if (window.innerWidth >= 640) {
+                    menu.classList.remove('hidden');
+                    arrow.style.transform = 'rotate(180deg)';
+                }
+            });
+            wrapper.addEventListener('mouseleave', () => {
+                if (window.innerWidth >= 640) {
+                    menu.classList.add('hidden');
+                    arrow.style.transform = 'rotate(0deg)';
+                }
+            });
+
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (window.innerWidth < 640) { 
+                    menu.classList.toggle('hidden');
+                    arrow.style.transform = menu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                }
+            });
+
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth < 640 && !wrapper.contains(e.target)) {
+                    menu.classList.add('hidden');
+                    arrow.style.transform = 'rotate(0deg)';
+                }
+            });
+        }
+
+        initHeader('creepers.sbs');
+
+        // --- SCROLL REVEAL ANIMATION ---
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        reveals.forEach(reveal => observer.observe(reveal));
+    </script>
 </body>
 </html>
