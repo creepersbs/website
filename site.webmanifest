@@ -29,7 +29,12 @@
             "name": "Link-In-Bio",
             "short_name": "LIB",
             "description": "Use our Link-In-Bio service",
-            "url": "/askfor.pics"
+            "url": "/askfor.pics"},
+            {
+            "name": "URL Shortener",
+            "short_name": "Shrinkify",
+            "description": "Use our URL Shortener service",
+            "url": "/shrinkify"
         }
     ],
     "lang": "en-US",

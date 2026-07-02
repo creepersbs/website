@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Basic SEO -->
-    <meta name="description" content="askfor.pics is the official link-in-bio service for creepers.sbs. Claim your custom profile today.">
-    <meta name="keywords" content="link in bio, askfor.pics, creepers.sbs, CreeperHUB, url shortener, bio link">
+    <meta name="description" content="Shrinkify is the official URL shortener by the CreeperHUB network. Create short links across multiple domains with analytics, QR codes, and more.">
+    <meta name="keywords" content="url shortener, shrinkify, link shortener, qr code generator, analytics, creepers.sbs, CreeperHUB">
     <meta name="author" content="CreeperHUB">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://askfor.pics/">
+    <meta property="og:url" content="https://shrinkify.club/">
     <meta property="og:image" content="/assets/img/mini-banner.png">
-    <meta property="og:title" content="askfor.pics - The official link-in-bio of creepers.sbs">
-    <meta property="og:description" content="Claim your custom askfor.pics/@username profile today. Coming Soon™">
-    <meta property="og:site_name" content="askfor.pics">
+    <meta property="og:title" content="Shrinkify - The Network's URL Shortener">
+    <meta property="og:description" content="Create short links across multiple domains with analytics, QR codes, and link-in-bio integration. Coming Soon™">
+    <meta property="og:site_name" content="Shrinkify">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@GiocoliereDev">
     <meta name="twitter:creator" content="@GiocoliereDev">
-    <meta name="twitter:title" content="askfor.pics - The official link-in-bio of creepers.sbs">
-    <meta name="twitter:description" content="Claim your custom askfor.pics/@username profile today. Coming Soon™">
+    <meta name="twitter:title" content="Shrinkify - The Network's URL Shortener">
+    <meta name="twitter:description" content="Create short links across multiple domains with analytics, QR codes, and link-in-bio integration. Coming Soon™">
     <meta name="twitter:image:alt" content="/assets/img/mini-banner.png" />
 
     <!-- Discord Embed -->
@@ -30,10 +30,10 @@
     <meta property="discord:invite" content="Ttyg95fszY">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://askfor.pics/">
+    <link rel="canonical" href="https://shrinkify.club/">
     <meta property="og:locale" content="en_US">
 
-    <title>askfor.pics - Link in Bio</title>
+    <title>Shrinkify - URL Shortener</title>
     
     <!-- Tailwind CSS & Font Awesome -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,7 +43,6 @@
 
     <style>
         :root {
-            /* Network Header adapted for this dark theme */
             --creepers-header-bg: #09090b;
             --creepers-header-text: #ffffff;
             --creepers-header-border: #1a1a1a;
@@ -111,7 +110,6 @@
         ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #025d32; }
 
-        /* URL Preview Glitch */
         .url-preview {
             font-family: 'Courier New', Courier, monospace;
         }
@@ -137,15 +135,15 @@
         <header class="sticky top-9 z-50 backdrop-blur-md bg-zinc-950/80 border-b border-zinc-800">
             <div class="container mx-auto px-6 py-4 flex items-center justify-between">
                 <a href="/" class="flex items-center gap-3">
-                    <img src="/assets/img/image.png" alt="askfor.pics logo" class="w-8 h-8 rounded-lg">
-                    <span class="font-bold text-lg tracking-tight">askfor.pics</span>
+                    <img src="/assets/img/image.png" alt="Shrinkify logo" class="w-8 h-8 rounded-lg">
+                    <span class="font-bold text-lg tracking-tight">shrinkify.club</span>
                 </a>
                 
                 <!-- Desktop Nav -->
                 <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-zinc-400">
                     <a href="/" class="hover:text-white transition-colors">Home</a>
                     <a href="/donate" class="block py-2 text-zinc-400 hover:text-white">Donate</a>
-                    <a href="/shrinkify" class="block py-2 text-zinc-400 hover:text-white">URL Shortener</a>
+                    <a href="/askfor.pics" class="block py-2 text-zinc-400 hover:text-white">Link-In-Bio</a>
                     <a href="https://status.creepers.sbs" class="hover:text-white transition-colors">Status</a>
                     <a href="https://docs.creepers.sbs" class="hover:text-white transition-colors">Documentation</a>
                     <a href="https://github.com/creepersbs" class="hover:text-white transition-colors flex items-center gap-1">
@@ -166,7 +164,7 @@
             <div id="mobile-menu" class="hidden lg:hidden border-t border-zinc-800 px-6 py-4 flex-col gap-4 bg-zinc-950">
                <a href="/" class="block py-2 text-zinc-400 hover:text-white">Home</a>
                 <a href="/donate" class="block py-2 text-zinc-400 hover:text-white">Donate</a>
-                <a href="/shrinkify" class="block py-2 text-zinc-400 hover:text-white">URL Shortener</a>
+                <a href="/askfor.pics" class="block py-2 text-zinc-400 hover:text-white">Link-In-Bio</a>
                 <a href="https://status.creepers.sbs" class="block py-2 text-zinc-400 hover:text-white">Status</a>
                 <a href="https://docs.creepers.sbs" class="block py-2 text-zinc-400 hover:text-white">Documentation</a>
                 <a href="https://github.com/creepersbs" class="block py-2 text-zinc-400 hover:text-white">GitHub</a>
@@ -182,67 +180,113 @@
                     <span class="text-xs font-medium tracking-widest uppercase text-yellow-500">Work in Progress</span>
                 </div>
                 <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tighter mb-6">
-                    The official <br class="hidden sm:block"><span class="text-[#025d32]">Link-in-Bio</span>
+                    The Network's <br class="hidden sm:block"><span class="text-[#025d32]">URL Shortener</span>
                 </h1>
                 <p class="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto">
-                    <span class="font-bold text-white">askfor.pics</span> is officially the link-in-bio service for the creepers.sbs network. Claim your profile and centralize your digital presence.
+                    <span class="font-bold text-white">Shrinkify</span> is the official URL shortener for the CreeperHUB network. Create short, trackable links across our multiple premium domains.
                 </p>
                 
                 <!-- URL Preview Mockup -->
                 <div class="reveal max-w-md mx-auto bg-zinc-900/50 border border-zinc-800 rounded-xl p-4 flex items-center justify-center gap-2 mb-12" style="transition-delay: 0.2s">
                     <i class="fas fa-link text-[#025d32]"></i>
-                    <span class="url-preview text-lg text-zinc-300">askfor.pics/<span class="text-white font-bold">@username</span></span>
+                    <span class="url-preview text-lg text-zinc-300">shorrt.run/<span class="text-white font-bold">your-link</span></span>
                 </div>
             </div>
         </section>
 
-        <!-- Notice / Joke Section -->
-        <section class="container mx-auto px-6 py-12">
-            <div class="reveal max-w-4xl mx-auto bg-gradient-to-b from-zinc-900/80 to-zinc-950 border-2 border-yellow-500/30 rounded-2xl p-8 md:p-12 text-center">
-                <div class="w-16 h-16 flex items-center justify-center bg-yellow-500/10 border border-yellow-500/30 rounded-xl mb-6 text-3xl text-yellow-500 mx-auto">
-                    <i class="fas fa-exclamation-triangle"></i>
-                </div>
-                <h2 class="text-2xl sm:text-3xl font-bold mb-4 text-white">A Note on the Name (It's Just a Joke!)</h2>
-                <p class="text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-                    We know the domain sounds suspicious, but it's just a joke! <br class="hidden sm:block">
-                    Please note: <span class="font-bold text-white">askfor.pics has a strict zero-tolerance policy for NSFW content.</span> This platform is built exclusively for creators, developers, and gamers to share their links and projects safely.
-                </p>
+        <!-- Supported Domains Section -->
+        <section class="container mx-auto px-6 py-16">
+            <div class="reveal text-center mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mb-4">Multiple Supported Domains</h2>
+                <p class="text-zinc-400 max-w-xl mx-auto">Choose the domain that best fits your vibe. More domains coming soon.</p>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-4 max-w-3xl mx-auto reveal">
+                <span class="px-5 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-300 font-mono text-sm hover:border-[#025d32] transition-colors cursor-default">shrinkify.club</span>
+                <span class="px-5 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-300 font-mono text-sm hover:border-[#025d32] transition-colors cursor-default">shrinkify.vip</span>
+                <span class="px-5 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-300 font-mono text-sm hover:border-[#025d32] transition-colors cursor-default">shrify.ink</span>
+                <span class="px-5 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-300 font-mono text-sm hover:border-[#025d32] transition-colors cursor-default">shorrt.run</span>
+                <span class="px-5 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-300 font-mono text-sm hover:border-[#025d32] transition-colors cursor-default">shorrt.xyz</span>
             </div>
         </section>
 
-        <!-- Features Teaser -->
-        <section class="container mx-auto px-6 py-24">
+        <!-- Features Section -->
+        <section class="container mx-auto px-6 py-24 border-t border-zinc-900">
             <div class="reveal text-center mb-16">
-                <h2 class="text-3xl sm:text-5xl font-black tracking-tighter mb-4">Coming Soon™</h2>
-                <p class="text-zinc-400 max-w-xl mx-auto">We are building a suite of features tailored specifically around the user. More details will be revealed upon release.</p>
+                <h2 class="text-3xl sm:text-5xl font-black tracking-tighter mb-4">Suite of Tools</h2>
+                <p class="text-zinc-400 max-w-xl mx-auto">Everything you need to manage, track, and distribute your links.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <!-- Feature Teaser 1 -->
-                <div class="reveal group p-8 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-[#025d32] transition-all duration-300 text-center">
-                    <div class="w-14 h-14 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/20 rounded-xl mb-6 text-2xl text-[#025d32] group-hover:scale-110 transition-transform mx-auto">
-                        <i class="fas fa-user-astronaut"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Feature 1: Dashboard & Analytics -->
+                <div class="reveal group p-8 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-[#025d32] transition-all duration-300">
+                    <div class="w-14 h-14 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/20 rounded-xl mb-6 text-2xl text-[#025d32] group-hover:scale-110 transition-transform">
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">User-Centric</h3>
-                    <p class="text-zinc-400 text-sm">Features designed specifically around how you interact with your audience.</p>
+                    <h3 class="text-xl font-bold mb-2">Dashboard & Analytics</h3>
+                    <p class="text-zinc-400 text-sm">A powerful dashboard to track clicks, geographic data, and referrers in real-time.</p>
                 </div>
 
-                <!-- Feature Teaser 2 -->
-                <div class="reveal group p-8 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-[#025d32] transition-all duration-300 text-center" style="transition-delay: 0.1s">
-                    <div class="w-14 h-14 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/20 rounded-xl mb-6 text-2xl text-[#025d32] group-hover:scale-110 transition-transform mx-auto">
-                        <i class="fas fa-puzzle-piece"></i>
+                <!-- Feature 2: UTM Campaigns -->
+                <div class="reveal group p-8 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-[#025d32] transition-all duration-300" style="transition-delay: 0.05s">
+                    <div class="w-14 h-14 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/20 rounded-xl mb-6 text-2xl text-[#025d32] group-hover:scale-110 transition-transform">
+                        <i class="fas fa-bullseye"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Deep Integration</h3>
-                    <p class="text-zinc-400 text-sm">Built to integrate seamlessly with the rest of the creepers.sbs ecosystem.</p>
+                    <h3 class="text-xl font-bold mb-2">UTM Campaigns</h3>
+                    <p class="text-zinc-400 text-sm">Built-in UTM builder to perfectly track your marketing campaigns across the web.</p>
                 </div>
 
-                <!-- Feature Teaser 3 -->
-                <div class="reveal group p-8 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-[#025d32] transition-all duration-300 text-center" style="transition-delay: 0.2s">
-                    <div class="w-14 h-14 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/20 rounded-xl mb-6 text-2xl text-[#025d32] group-hover:scale-110 transition-transform mx-auto">
-                        <i class="fas fa-tools"></i>
+                <!-- Feature 3: Branded Links & Domains -->
+                <div class="reveal group p-8 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-[#025d32] transition-all duration-300" style="transition-delay: 0.1s">
+                    <div class="w-14 h-14 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/20 rounded-xl mb-6 text-2xl text-[#025d32] group-hover:scale-110 transition-transform">
+                        <i class="fas fa-stamp"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Customization</h3>
-                    <p class="text-zinc-400 text-sm">Make your profile truly yours. Exact customization options TBA.</p>
+                    <h3 class="text-xl font-bold mb-2">Branded Links</h3>
+                    <p class="text-zinc-400 text-sm">Use your own custom domains to create branded short links that build trust.</p>
+                </div>
+
+                <!-- Feature 4: QR Generator -->
+                <div class="reveal group p-8 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-[#025d32] transition-all duration-300" style="transition-delay: 0.15s">
+                    <div class="w-14 h-14 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/20 rounded-xl mb-6 text-2xl text-[#025d32] group-hover:scale-110 transition-transform">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">QR Code Generator</h3>
+                    <p class="text-zinc-400 text-sm">Generate custom QR codes for any short link to bridge physical and digital.</p>
+                </div>
+
+                <!-- Feature 5: Landing Pages -->
+                <div class="reveal group p-8 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-[#025d32] transition-all duration-300" style="transition-delay: 0.2s">
+                    <div class="w-14 h-14 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/20 rounded-xl mb-6 text-2xl text-[#025d32] group-hover:scale-110 transition-transform">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Landing Pages</h3>
+                    <p class="text-zinc-400 text-sm">Quickly spin up micro-landing pages for your campaigns without writing code.</p>
+                </div>
+
+                <!-- Feature 6: Link in Bio -->
+                <div class="reveal group p-8 bg-zinc-900/50 border border-zinc-800 rounded-2xl hover:border-[#025d32] transition-all duration-300" style="transition-delay: 0.25s">
+                    <div class="w-14 h-14 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/20 rounded-xl mb-6 text-2xl text-[#025d32] group-hover:scale-110 transition-transform">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Link-in-Bio</h3>
+                    <p class="text-zinc-400 text-sm">Directly integrated with <a href="https://askfor.pics" class="text-[#025d32] hover:underline">askfor.pics</a> to serve your link-in-bio profiles.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ecosystem Integration Section -->
+        <section class="container mx-auto px-6 py-24 border-t border-zinc-900">
+            <div class="reveal max-w-4xl mx-auto bg-gradient-to-b from-zinc-900/80 to-zinc-950 border border-[#025d32]/30 rounded-2xl p-8 md:p-12">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-20 h-20 flex-shrink-0 flex items-center justify-center bg-[#025d32]/10 border border-[#025d32]/30 rounded-2xl text-4xl text-[#025d32]">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-3 text-white">Deep <span class="text-[#025d32]">creepers.sbs</span> Integration</h2>
+                        <p class="text-zinc-400 leading-relaxed">
+                            Shrinkify is built to integrate directly with the creepers.sbs subdomain dashboard. Once you claim your free subdomain, you'll be able to link it to Shrinkify and use it as a custom branded shortener right from your panel.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -251,8 +295,8 @@
         <footer class="border-t border-zinc-800 mt-12">
             <div class="container mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="flex items-center gap-3">
-                    <img src="/assets/img/image.png" alt="askfor.pics logo" class="w-8 h-8 rounded-lg">
-                    <span class="font-bold text-lg tracking-tight">askfor.pics</span>
+                    <img src="https://creepers.sbs/assets/img/image.png" alt="Shrinkify logo" class="w-8 h-8 rounded-lg">
+                    <span class="font-bold text-lg tracking-tight">shrinkify.club</span>
                 </div>
                 <p class="text-zinc-500 text-sm text-center md:text-right">&copy; <span id="current-year"></span> CreeperHUB. All rights reserved.</p>
             </div>
@@ -291,8 +335,8 @@
             ],
             "UTILITIES & APPS": [
                 { name: "creepers.sbs", url: "https://creepers.sbs", description: "Free subdomain service" },
-                { name: "Shrinkify", url: "https://shrinkify.club", description: "URL shortener" },
-                { name: "askfor.pics", url: "#", description: "Link-In-Bio", status: "current" },
+                { name: "Shrinkify", url: "#", description: "URL shortener", status: "current" },
+                { name: "askfor.pics", url: "https://askfor.pics", description: "Link-In-Bio" },
             ],
             "OTAKUFORGE":  [
                 { name: "Otakuforge", url: "https://otakuforge.org", description: "Upcoming social network" },
@@ -392,7 +436,7 @@
             });
         }
 
-        initHeader('askfor.pics');
+        initHeader('Shrinkify');
 
         // --- SCROLL REVEAL ANIMATION ---
         const reveals = document.querySelectorAll('.reveal');
